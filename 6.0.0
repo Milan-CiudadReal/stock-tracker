@@ -1,0 +1,19 @@
+Collecting twilio
+  Downloading twilio-6.43.0.tar.gz (431 kB)
+Requirement already satisfied: six in c:\users\justm\envs\stock1\lib\site-packages (from twilio) (1.15.0)
+Requirement already satisfied: pytz in c:\users\justm\envs\stock1\lib\site-packages (from twilio) (2020.1)
+Collecting PyJWT>=1.4.2
+  Downloading PyJWT-1.7.1-py2.py3-none-any.whl (18 kB)
+Requirement already satisfied: requests>=2.0.0 in c:\users\justm\envs\stock1\lib\site-packages (from twilio) (2.24.0)
+Requirement already satisfied: chardet<4,>=3.0.2 in c:\users\justm\envs\stock1\lib\site-packages (from requests>=2.0.0->twilio) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\justm\envs\stock1\lib\site-packages (from requests>=2.0.0->twilio) (2020.6.20)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in c:\users\justm\envs\stock1\lib\site-packages (from requests>=2.0.0->twilio) (1.25.9)
+Requirement already satisfied: idna<3,>=2.5 in c:\users\justm\envs\stock1\lib\site-packages (from requests>=2.0.0->twilio) (2.10)
+Building wheels for collected packages: twilio
+  Building wheel for twilio (setup.py): started
+  Building wheel for twilio (setup.py): finished with status 'done'
+  Created wheel for twilio: filename=twilio-6.43.0-py2.py3-none-any.whl size=1140666 sha256=e139760c60ccdcb25520f23c098bc1f338db8c8bf5013a1c2298f669f996a3a3
+  Stored in directory: c:\users\justm\appdata\local\pip\cache\wheels\ef\82\d7\d237b7912a6547e86f83cac75ac8197b84dd7c5878ae3a46a4
+Successfully built twilio
+Installing collected packages: PyJWT, twilio
+Successfully installed PyJWT-1.7.1 twilio-6.43.0
