@@ -17,9 +17,7 @@ def spy_change():
     live_spy=get_live_price('spy')
     closing_price_spy=spy['close']
     spy_change=(live_spy - closing_price_spy[-2])/live_spy
-    # print(tick[0])
-    # print('${:.2f}'.format(live_spy))
-    # print('{:.2%}'.format(spy_change))
+
     if spy_change >=0:
         result='up'
     else:
@@ -33,9 +31,7 @@ def qqq_change():
     live_qqq=get_live_price('qqq')
     closing_price_qqq=qqq['close']
     qqq_change=(live_qqq - closing_price_qqq[-2])/live_qqq
-    # print(tick[0])
-    # print('${:.2f}'.format(live_qqq))
-    # print('{:.2%}'.format(qqq_change))
+    
     if qqq_change >=0:
         result='up'
     else:
@@ -48,9 +44,7 @@ def rut_change():
     live_rut=get_live_price('^rut')
     closing_price_rut=rut['close']
     rut_change=(live_rut - closing_price_rut[-2])/live_rut
-    # print(tick[0])
-    # print('${:,.2f}'.format(live_rut))
-    # print('{:.2%}'.format(rut_change))
+    
     if rut_change >=0:
         result='up'
     else:
@@ -75,9 +69,7 @@ def dxy_change():
     closing_price_dxy=dxy['close']
     open_price_dxy=dxy['open']
     dxy_change=(closing_price_dxy[-1] - open_price_dxy[-1])/closing_price_dxy[-1]
-    # print(tick[0])
-    # print('${:.2f}'.format(closing_price_dxy[-1]))
-    # print('{:.2%}'.format(dxy_change))
+    
     if dxy_change >=0:
         result='up'
     else:
@@ -90,9 +82,7 @@ def bitcoin_change():
     bitcoin=crypt['Name']
     bitcoin_price=crypt['Price (Intraday)']
     bitcoin_change=crypt['% Change']
-    # print(bitcoin[0])
-    # print('${:,.2f}'.format(bitcoin_price[0]))
-    # print('{:.2%}'.format(bitcoin_change[0]))
+    
     if bitcoin_change[0] >=0:
         result='up'
     else:
@@ -105,9 +95,7 @@ def ethereum_change():
     ethereum=crypt['Name']
     ethereum_price=crypt['Price (Intraday)']
     ethereum_change=crypt['% Change']
-    # print(ethereum[1])
-    # print('${:,.2f}'.format(ethereum_price[1]))
-    # print('{:.2%}'.format(ethereum_change[1]/100))
+    
     if ethereum_change[0] >=0:
         result='up'
     else:
@@ -152,27 +140,27 @@ def gainer():
     price_day_gainer1=gainers['Price (Intraday)']
     change_day_gainer1=gainers['% Change']
     dg1_tick=(day_gainer1[0])
-    dg1_price=('${:,.2f}'.format(price_day_gainer1[0]))
-    dg1_change=('{:.2%}'.format(change_day_gainer1[0]/100))
+    dg1_price=('${:,.2f}'.format((price_day_gainer1[0])))
+    dg1_change=('{:.2%}'.format(change_day_gainer1[0]))
 
     day_gainer2=gainers['Symbol']
     price_day_gainer2=gainers['Price (Intraday)']
     change_day_gainer2=gainers['% Change']
     dg2_tick=(day_gainer2[1])
     dg2_price=('${:,.2f}'.format(price_day_gainer2[1]))
-    dg2_change=('{:.2%}'.format(change_day_gainer2[1]/100))
+    dg2_change=('{:.2%}'.format(change_day_gainer2[1]))
 
     day_gainer3=gainers['Symbol']
     price_day_gainer3=gainers['Price (Intraday)']
     change_day_gainer3=gainers['% Change']
     dg3_tick=(day_gainer3[2])
     dg3_price=('${:,.2f}'.format(price_day_gainer3[2]))
-    dg3_change=('{:.2%}'.format(change_day_gainer3[2]/100))
+    dg3_change=('{:.2%}'.format(change_day_gainer3[2]))
 
     tickers=(f"The top gainers are {dg1_tick}, {dg2_tick}, and {dg3_tick}.\n")
     prices=(f"Their prices are currently {dg1_price}, {dg2_price}, and {dg3_price}.\n")
     change=(f"Their prices rose by {dg1_change}, {dg2_change}, and {dg3_change}.")
-    return(tickers+prices+change)
+    print(tickers+prices+change)
 
 
 ### Top 3 Losers ###
@@ -212,13 +200,14 @@ def message():
         client.messages.create(
         to=n,
         from_=sending, 
-        body=f'{spy_change()}\n{qqq_change()}\n{rut_change()}\n{gold_price()}\n{silver_price()}\n{dxy_change()}\n{bitcoin_change()}\n{ethereum_change()}\n{most_active()}\n{gainer()}\n{loser()}'
+        body=f'{spy_change()}\n{qqq_change()}\n{rut_change()}\n{gold_price()}\n{silver_price()}\n{dxy_change()}\n{bitcoin_change()}\n{ethereum_change()}\n{most_active()}\n{loser()}'
         )
+    # \n{gainer()}
     time=datetime.now()
     print(f"message sent at {time}")
-        
 
-### Scheduling ###
+
+## Scheduling ###
 
 schedule.every().monday.at("16:05").do(message)
 schedule.every().tuesday.at("16:05").do(message)
