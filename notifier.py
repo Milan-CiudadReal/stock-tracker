@@ -209,7 +209,7 @@ def message():
 
 ## Scheduling ###
 
-schedule.every().monday.at("16:05").do(message)
+schedule.every().monday.at("17:30").do(message)
 schedule.every().tuesday.at("16:05").do(message)
 schedule.every().wednesday.at("16:05").do(message)
 schedule.every().thursday.at("16:05").do(message)
